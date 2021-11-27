@@ -3,70 +3,73 @@
 
   <head>
     <title>Todo App</title>
-    <link 
-      href="https://fonts.googleapis.com/css?family=Lato:300,400,700" 
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
       rel="stylesheet"
     >
-    <link 
-      rel="stylesheet" 
-      href="style.css" 
-      media="screen" 
+    <link
+      rel="stylesheet"
+      href="style.css"
+      media="screen"
       charset="utf-8"
     >
   </head>
 
   <body>
-    <div class="thumbnail">
+    <div class="thumbnail" role="banner">
       <img class="thumbnail__image" src="./eisenhower-matrix.jpg">
-      <a 
+      <a
         class="thumbnail__info" 
         href="https://goal-life.com/page/method/matrix-eisenhower"
         >Want more details?</a
       >
     </div>
-    <div class="main">
-      <p class="create-task">
+    <article class="main">
+      <section class="create-task">
         <label for="new-task" class='create-task__label title'>Add Item</label>
         <div class="flex">
           <input id="new-task" class="create-task__input input" type="text">
           <button class="create-task__add-btn button">Add</button>
         </div>
-      </p>
-      <h3 class="title">Todo</h3>
-      <ul class="incomplete-tasks task-list">
-        <li class="task">
-          <input class="task__checkbox" type="checkbox">
-          <label class="task__content">Pay Bills</label>
-          <input type="text" class="task__input">
-          <button class="button task__edit-btn">Edit</button>
-          <button class="button task__delete-btn">
-            <img class="button__icon" src="./remove.svg">
-          </button>
-        </li>
-        <li class="task task_editing">
-          <input class="task__checkbox" type="checkbox">
-          <label class="task__content">Go Shopping</label>
-          <input type="text" class="task__input input" value="Go Shopping">
-          <button class="button task__edit-btn">Save</button>
-          <button class="button task__delete-btn">
-            <img class="button__icon" src="./remove.svg">
-          </button>
-        </li>
-      </ul>
-      <h3 class="title">Completed</h3>
-      <ul class="completed-tasks task-list">
-        <li class="task">
-          <input class="task__checkbox" type="checkbox" checked>
-          <label class="task__content">See the Doctor</label>
-          <input type="text" class="task__input input">
-          <button class="button task__edit-btn">Edit</button>
-          <button class="button task__delete-btn">
-            <img class="button__icon" src="./remove.svg">
-          </button>
-        </li>
-      </ul>
-    </div>
+      </section>
+      <section class="incomplete-tasks">
+        <h3 class="title">Todo</h3>
+        <ul class="incomplete-tasks__list task-list">
+          <li class="task">
+            <input class="task__checkbox" type="checkbox">
+            <label class="task__content">Pay Bills</label>
+            <input type="text" class="task__input input">
+            <button class="button task__edit-btn">Edit</button>
+            <button class="button task__delete-btn">
+              <img class="button__icon" aria-hidden="true" src="./remove.svg">
+            </button>
+          </li>
+          <li class="task task_editing">
+            <input class="task__checkbox" type="checkbox">
+            <label class="task__content">Go Shopping</label>
+            <input type="text" class="task__input input" value="Go Shopping">
+            <button class="button task__edit-btn">Save</button>
+            <button class="button task__delete-btn">
+              <img class="button__icon" aria-hidden="true" src="./remove.svg">
+            </button>
+          </li>
+        </ul>
+      </section>
+      <section class="completed-tasks">
+        <h3 class="title">Completed</h3>
+        <ul class="completed-tasks__list task-list">
+          <li class="task">
+            <input class="task__checkbox" type="checkbox" checked>
+            <label class="task__content">See the Doctor</label>
+            <input type="text" class="task__input input">
+            <button class="button task__edit-btn">Edit</button>
+            <button class="button task__delete-btn">
+              <img class="button__icon" aria-hidden="true" src="./remove.svg">
+            </button>
+          </li>
+        </ul>
+      </section>
+    </article>
     <script src="app.js"></script>
   </body>
-
 </html>
