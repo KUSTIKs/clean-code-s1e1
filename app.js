@@ -17,11 +17,11 @@ const createNewTaskElement = (taskString) => {
   label.innerText = taskString;
 
   const editInput = document.createElement('input');
-  editInput.className = 'input task__input'
+  editInput.className = 'input task__input';
   editInput.type = 'text';
 
   const editButton = document.createElement('button');
-  editButton.className = 'button task__edit-btn'
+  editButton.className = 'button task__edit-btn';
   editButton.innerText = 'Edit'; // innerText encodes special characters, HTML does not.
 
 
@@ -30,7 +30,7 @@ const createNewTaskElement = (taskString) => {
 
   const deleteButtonImg = document.createElement('img');
   deleteButtonImg.src = './remove.svg';
-  deleteButtonImg.className = 'button__icon'
+  deleteButtonImg.className = 'button__icon';
 
   deleteButton.appendChild(deleteButtonImg);
 
@@ -128,10 +128,10 @@ const bindTaskEvents = (taskListItem,checkBoxEventHandler) => {
   checkBox.onchange = checkBoxEventHandler;
 }
 
-for (let i = 0; i < incompleteTaskHolder.children.length;i++){
+for (let i = 0; i < incompleteTaskHolder.children.length;i += 1){
   bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
 }
 
-for (let i = 0; i < completedTasksHolder.children.length;i++){
+for (let i = 0; i < completedTasksHolder.children.length;i += 1){
   bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
