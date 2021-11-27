@@ -24,7 +24,6 @@ const createNewTaskElement = (taskString) => {
   editButton.className = 'button task__edit-btn';
   editButton.innerText = 'Edit'; // innerText encodes special characters, HTML does not.
 
-
   const deleteButton = document.createElement('button');
   deleteButton.className = 'button task__delete-btn';
 
@@ -41,7 +40,7 @@ const createNewTaskElement = (taskString) => {
   listItem.appendChild(deleteButton);
 
   return listItem;
-}
+};
 
 const addTask = () => {
   console.log('Add Task...');
@@ -53,7 +52,7 @@ const addTask = () => {
   bindTaskEvents(listItem, taskCompleted);
 
   taskInput.value = '';
-}
+};
 
 const editTask = () => {
   console.log('Edit Task...');
@@ -83,7 +82,7 @@ const deleteTask = () => {
   const listItem = this.parentNode;
   const ul = listItem.parentNode;
   ul.removeChild(listItem);
-}
+};
 
 const taskCompleted = () => {
   console.log('Complete Task...');
@@ -92,18 +91,18 @@ const taskCompleted = () => {
   const listItem = this.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
-}
+};
 
 const taskIncomplete = () => {
   console.log('Incomplete Task...');
   const listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem,taskCompleted);
-}
+};
 
 const ajaxRequest = () => {
   console.log('AJAX Request');
-}
+};
 
 addButton.onclick = addTask;
 addButton.addEventListener('click',addTask);
@@ -119,7 +118,7 @@ const bindTaskEvents = (taskListItem,checkBoxEventHandler) => {
   editButton.onclick = editTask;
   deleteButton.onclick = deleteTask;
   checkBox.onchange = checkBoxEventHandler;
-}
+};
 
 for (let i = 0; i < incompleteTaskHolder.children.length;i += 1){
   bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
