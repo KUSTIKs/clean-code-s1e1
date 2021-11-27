@@ -4,7 +4,6 @@ const incompleteTaskHolder = document.querySelector('.incomplete-tasks__list');
 const completedTasksHolder = document.querySelector('.completed-tasks__list');
 
 const createNewTaskElement = (taskString) => {
-
   const listItem = document.createElement('li');
   listItem.className = 'task';
 
