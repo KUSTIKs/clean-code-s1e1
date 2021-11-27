@@ -96,7 +96,7 @@ const taskIncomplete = () => {
   console.log('Incomplete Task...');
   const listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
-  bindTaskEvents(listItem,taskCompleted);
+  bindTaskEvents(listItem, taskCompleted);
 };
 
 const ajaxRequest = () => {
@@ -104,10 +104,10 @@ const ajaxRequest = () => {
 };
 
 addButton.onclick = addTask;
-addButton.addEventListener('click',addTask);
-addButton.addEventListener('click',ajaxRequest);
+addButton.addEventListener('click', addTask);
+addButton.addEventListener('click', ajaxRequest);
 
-const bindTaskEvents = (taskListItem,checkBoxEventHandler) => {
+const bindTaskEvents = (taskListItem, checkBoxEventHandler) => {
   console.log('bind list item events');
   // select ListItems children
   const checkBox = taskListItem.querySelector('.task__checkbox');
@@ -119,10 +119,10 @@ const bindTaskEvents = (taskListItem,checkBoxEventHandler) => {
   checkBox.onchange = checkBoxEventHandler;
 };
 
-for (let i = 0; i < incompleteTaskHolder.children.length;i += 1) {
-  bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
+for (let i = 0; i < incompleteTaskHolder.children.length; i += 1) {
+  bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
 }
 
-for (let i = 0; i < completedTasksHolder.children.length;i += 1) {
-  bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
+for (let i = 0; i < completedTasksHolder.children.length; i += 1) {
+  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }
