@@ -64,7 +64,7 @@ const editTask = () => {
   const editBtn = listItem.querySelector('.task__edit-btn');
   const containsClass = listItem.classList.contains('task_editing');
 
-  if (containsClass){
+  if (containsClass) {
     label.innerText = editInput.value;
     editBtn.innerText = 'Edit';
   } else {
@@ -119,10 +119,10 @@ const bindTaskEvents = (taskListItem,checkBoxEventHandler) => {
   checkBox.onchange = checkBoxEventHandler;
 };
 
-for (let i = 0; i < incompleteTaskHolder.children.length;i += 1){
+for (let i = 0; i < incompleteTaskHolder.children.length;i += 1) {
   bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
 }
 
-for (let i = 0; i < completedTasksHolder.children.length;i += 1){
+for (let i = 0; i < completedTasksHolder.children.length;i += 1) {
   bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
