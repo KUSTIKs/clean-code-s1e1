@@ -43,8 +43,6 @@ const createNewTaskElement = (taskString) => {
   return listItem;
 }
 
-
-
 const addTask = () => {
   console.log('Add Task...');
   // Create a new list item with the text from the .new-task__input:
@@ -60,7 +58,6 @@ const addTask = () => {
 const editTask = () => {
   console.log('Edit Task...');
   console.log("Change 'edit' to 'save'");
-
 
   const listItem = this.parentNode;
 
@@ -80,7 +77,6 @@ const editTask = () => {
   listItem.classList.toggle('task_editing');
 };
 
-
 const deleteTask = () => {
   console.log('Delete Task...');
 
@@ -88,7 +84,6 @@ const deleteTask = () => {
   const ul = listItem.parentNode;
   ul.removeChild(listItem);
 }
-
 
 const taskCompleted = () => {
   console.log('Complete Task...');
@@ -98,7 +93,6 @@ const taskCompleted = () => {
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 }
-
 
 const taskIncomplete = () => {
   console.log('Incomplete Task...');
@@ -114,7 +108,6 @@ const ajaxRequest = () => {
 addButton.onclick = addTask;
 addButton.addEventListener('click',addTask);
 addButton.addEventListener('click',ajaxRequest);
-
 
 const bindTaskEvents = (taskListItem,checkBoxEventHandler) => {
   console.log('bind list item events');
