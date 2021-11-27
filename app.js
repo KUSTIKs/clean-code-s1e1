@@ -3,7 +3,7 @@ const addButton = document.querySelector('.create-task__add-btn');
 const incompleteTaskHolder = document.querySelector('.incomplete-tasks__list');
 const completedTasksHolder = document.querySelector('.completed-tasks__list');
 
-const createNewTaskElement = function(taskString){
+const createNewTaskElement = (taskString) => {
 
   const listItem = document.createElement('li');
   listItem.className = 'task';
@@ -45,7 +45,7 @@ const createNewTaskElement = function(taskString){
 
 
 
-const addTask = function(){
+const addTask = () => {
   console.log('Add Task...');
   // Create a new list item with the text from the .new-task__input:
   if (!taskInput.value) return;
@@ -57,7 +57,7 @@ const addTask = function(){
   taskInput.value = '';
 }
 
-const editTask = function(){
+const editTask = () => {
   console.log('Edit Task...');
   console.log("Change 'edit' to 'save'");
 
@@ -81,7 +81,7 @@ const editTask = function(){
 };
 
 
-const deleteTask = function(){
+const deleteTask = () => {
   console.log('Delete Task...');
 
   const listItem = this.parentNode;
@@ -90,7 +90,7 @@ const deleteTask = function(){
 }
 
 
-const taskCompleted = function(){
+const taskCompleted = () => {
   console.log('Complete Task...');
 
   // Append the task list item to the .completed-tasks__list
@@ -100,14 +100,14 @@ const taskCompleted = function(){
 }
 
 
-const taskIncomplete = function(){
+const taskIncomplete = () => {
   console.log('Incomplete Task...');
   const listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem,taskCompleted);
 }
 
-const ajaxRequest = function(){
+const ajaxRequest = () => {
   console.log('AJAX Request');
 }
 
@@ -116,7 +116,7 @@ addButton.addEventListener('click',addTask);
 addButton.addEventListener('click',ajaxRequest);
 
 
-const bindTaskEvents = function(taskListItem,checkBoxEventHandler){
+const bindTaskEvents = (taskListItem,checkBoxEventHandler) => {
   console.log('bind list item events');
   // select ListItems children
   const checkBox = taskListItem.querySelector('.task__checkbox');
