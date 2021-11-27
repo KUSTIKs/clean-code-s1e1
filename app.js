@@ -64,10 +64,10 @@ const editTask = () => {
   const editBtn = listItem.querySelector('.task__edit-btn');
   const containsClass = listItem.classList.contains('task_editing');
 
-  if(containsClass){
+  if (containsClass){
     label.innerText = editInput.value;
     editBtn.innerText = 'Edit';
-  }else{
+  } else {
     editInput.value = label.innerText;
     editBtn.innerText = 'Save';
   }
