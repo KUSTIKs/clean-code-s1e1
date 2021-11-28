@@ -3,7 +3,7 @@ const addButton = document.querySelector('.create-task__add-btn');
 const incompleteTaskHolder = document.querySelector('.incomplete-tasks__list');
 const completedTasksHolder = document.querySelector('.completed-tasks__list');
 
-const createNewTaskElement = (taskString) => {
+function createNewTaskElement(taskString) {
   const listItem = document.createElement('li');
   listItem.className = 'task';
 
@@ -39,9 +39,9 @@ const createNewTaskElement = (taskString) => {
   listItem.appendChild(deleteButton);
 
   return listItem;
-};
+}
 
-const addTask = () => {
+function addTask() {
   console.log('Add Task...');
   // Create a new list item with the text from the .new-task__input:
   if (!taskInput.value) return;
@@ -51,9 +51,9 @@ const addTask = () => {
   bindTaskEvents(listItem, taskCompleted);
 
   taskInput.value = '';
-};
+}
 
-const editTask = () => {
+function editTask() {
   console.log('Edit Task...');
   console.log("Change 'edit' to 'save'");
 
@@ -73,41 +73,41 @@ const editTask = () => {
   }
 
   listItem.classList.toggle('task_editing');
-};
+}
 
-const deleteTask = () => {
+function deleteTask() {
   console.log('Delete Task...');
 
   const listItem = this.parentNode;
   const ul = listItem.parentNode;
   ul.removeChild(listItem);
-};
+}
 
-const taskCompleted = () => {
+function taskCompleted() {
   console.log('Complete Task...');
 
   // Append the task list item to the .completed-tasks__list
   const listItem = this.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
-};
+}
 
-const taskIncomplete = () => {
+function taskIncomplete() {
   console.log('Incomplete Task...');
   const listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
-};
+}
 
-const ajaxRequest = () => {
+function ajaxRequest() {
   console.log('AJAX Request');
-};
+}
 
 addButton.onclick = addTask;
 addButton.addEventListener('click', addTask);
 addButton.addEventListener('click', ajaxRequest);
 
-const bindTaskEvents = (taskListItem, checkBoxEventHandler) => {
+function bindTaskEvents(taskListItem, checkBoxEventHandler) {
   console.log('bind list item events');
   // select ListItems children
   const checkBox = taskListItem.querySelector('.task__checkbox');
@@ -117,7 +117,7 @@ const bindTaskEvents = (taskListItem, checkBoxEventHandler) => {
   editButton.onclick = editTask;
   deleteButton.onclick = deleteTask;
   checkBox.onchange = checkBoxEventHandler;
-};
+}
 
 for (let i = 0; i < incompleteTaskHolder.children.length; i += 1) {
   bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
