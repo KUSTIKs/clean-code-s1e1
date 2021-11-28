@@ -73,7 +73,7 @@ function editTask() {
 
 function deleteTask(e) {
   console.log('Delete Task...');
-  e.target.closest('.task')?.remove()
+  e.target.closest('.task')?.remove();
 }
 
 function taskCompleted(e) {
@@ -100,22 +100,22 @@ function ajaxRequest() {
 addButton.addEventListener('click', addTask);
 addButton.addEventListener('click', ajaxRequest);
 
-function bindTaskEvents(taskListItem, checkboxEventHandler) {
+function bindTaskEvents(task, checkboxEventHandler) {
   console.log('bind list item events');
   // select ListItems children
-  const checkbox = taskListItem.querySelector('.task__checkbox');
-  const editButton = taskListItem.querySelector('.task__edit-btn');
-  const deleteButton = taskListItem.querySelector('.task__delete-btn');
+  const checkbox = task.querySelector('.task__checkbox');
+  const editButton = task.querySelector('.task__edit-btn');
+  const deleteButton = task.querySelector('.task__delete-btn');
 
   editButton.onclick = editTask;
   deleteButton.onclick = deleteTask;
   checkbox.onchange = checkboxEventHandler;
 }
 
-for (let i = 0; i < incompleteTaskHolder.children.length; i += 1) {
-  bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
-}
+[...incompleteTaskHolder.children].forEach((child) =>
+  bindTaskEvents(child, taskCompleted)
+);
 
-for (let i = 0; i < completedTasksHolder.children.length; i += 1) {
-  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
-}
+[...completedTasksHolder.children].forEach((child) =>
+  bindTaskEvents(child, taskIncomplete)
+);
